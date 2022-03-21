@@ -1,9 +1,9 @@
-<ul *ngFor="let menuItem of menuList">
-  <li>{{menuItem.text}}</li>
+  <ul *ngFor="let menuItem of (menuList$ | async)">
+    <li>{{menuItem.text}}</li>
 
-  <ul class="main-sub-menu">
-    <li *ngFor="let subMenuItem of menuItem?.subLinks">
-      <a href="{{subMenuItem.url}}">{{subMenuItem.text}}</a>
-    </li>
+    <ul class="main-sub-menu">
+      <li *ngFor="let subMenuItem of menuItem?.subLinks">
+        <a href="{{subMenuItem.url}}">{{subMenuItem.text}}</a>
+      </li>
+    </ul>
   </ul>
-</ul>

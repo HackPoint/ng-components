@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TreeViewComponent } from './tree-view/tree-view.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   declarations: [
     TreeViewComponent
   ],
@@ -11,4 +12,5 @@ import { TreeViewComponent } from './tree-view/tree-view.component';
     TreeViewComponent
   ]
 })
-export class UiModule {}
+export class UiModule {
+}
