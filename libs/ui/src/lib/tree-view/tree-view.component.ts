@@ -1,17 +1,22 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Link, LinksProviderService } from './links-provider.service';
 
 @Component({
-  selector: 'ng-components-tree-view',
+  selector: 'ngc-tree-view',
   templateUrl: './tree-view.component.html',
   styleUrls: ['./tree-view.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeViewComponent implements OnInit {
+  menuList!: Link[];
 
-  constructor() { }
+  constructor(private readonly menuProvider: LinksProviderService) {
+  }
 
   ngOnInit(): void {
+    this.menuList = this.menuProvider.buildMenu();
+    console.log(this.menuProvider.buildMenu());
   }
 
 }
